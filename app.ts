@@ -1,9 +1,6 @@
-class Helloworld{
-    constructor(message){
-        console.log(message);
-    }
+function LoggerAndReturn<T>(thing: T) : T { 
+    return thing;
 }
 
-const helloworld=new Helloworld('Welcome to Typescript');
-console.log(helloworld);
-
+const message:string=LoggerAndReturn<string>('Hello World');
+console.log(message);
