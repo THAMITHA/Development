@@ -1,55 +1,74 @@
-// -----------generic String------------------------
+// // -----------generic String------------------------
 
 
-// function LoggerAndReturn<T>(thing: T) : T { 
-//     return thing;
+// // function LoggerAndReturn<T>(thing: T) : T { 
+// //     return thing;
+// // }
+
+// // //const message: string = LoggerAndReturn<string>('Hello World');
+// // const message: string = LoggerAndReturn('Hello World!!!');
+// // const message1: number = LoggerAndReturn(2);
+
+// // console.log(message);
+// // console.log(message1);
+
+
+
+// // -----------Generic Array------------------------
+
+// function getArray<T>(items: T[]): T[]{
+//     return new Array<T>().concat(items);
 // }
 
-// //const message: string = LoggerAndReturn<string>('Hello World');
-// const message: string = LoggerAndReturn('Hello World!!!');
-// const message1: number = LoggerAndReturn(2);
-
-// console.log(message);
-// console.log(message1);
 
 
+// let myNumArr = getArray([100,200,300]);
+// let myStrArr = getArray(['Hello', 'World']);
 
-// -----------Generic Array------------------------
+// // let myNumArr = getArray<number>([100,200,300]);
+// // let myStrArr = getArray<string>(['Hello', 'World']);
 
-function getArray<T>(items: T[]): T[]{
-    return new Array<T>().concat(items);
+// console.log(myNumArr);
+// console.log(myStrArr);
+
+
+// // // ----compiler error-----
+// // myNumArr.push('hello');
+// // myStrArr.push(1);
+
+
+
+// //mutiple type variables
+// function getInfo<T, U>(id: T,name: U):void{
+//     console.log(typeof id+ ',' +typeof name, ' getinfo');
+// }
+
+
+
+// getInfo<number, string>(1,'Jane');
+
+
+// // generic with known generic type-----------
+// function displayType<T>(id:T, name: string):void{
+//     console.log(typeof id +', '+typeof name);
+// }
+
+// displayType<number>(2,'malik');
+
+class Customer{
+    firstName: string;
+    lastName: string;
+
+    constructor(fname: string, lname: string){
+        this.firstName = fname;
+        this.lastName = lname;
+    }
+}
+
+function customerLogger<T extends Customer>(customer:T):void{
+    console.log(`${customer.firstName} ${customer.lastName}`);
 }
 
 
-
-let myNumArr = getArray([100,200,300]);
-let myStrArr = getArray(['Hello', 'World']);
-
-// let myNumArr = getArray<number>([100,200,300]);
-// let myStrArr = getArray<string>(['Hello', 'World']);
-
-console.log(myNumArr);
-console.log(myStrArr);
-
-
-// // ----compiler error-----
-// myNumArr.push('hello');
-// myStrArr.push(1);
-
-
-
-//mutiple type variables
-function getInfo<T, U>(id: T,name: U):void{
-    console.log(typeof id+ ',' +typeof name, ' getinfo');
-}
-
-
-
-getInfo<number, string>(1,'Jane');
-
-function displayType<T>(id:T, name: string):void{
-    console.log(typeof id +', '+typeof name);
-}
-
-displayType<number>(2,'malik');
-
+let customer = new Customer('Jane', 'Doe');
+customerLogger(customer);
