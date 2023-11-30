@@ -55,20 +55,38 @@
 
 // displayType<number>(2,'malik');
 
-class Customer{
-    firstName: string;
-    lastName: string;
+// class Customer{
+//     firstName: string;
+//     lastName: string;
 
-    constructor(fname: string, lname: string){
-        this.firstName = fname;
-        this.lastName = lname;
-    }
+//     constructor(fname: string, lname: string){
+//         this.firstName = fname;
+//         this.lastName = lname;
+//     }
+// }
+
+// function customerLogger<T extends Customer>(customer:T):void{
+//     console.log(`${customer.firstName} ${customer.lastName}`);
+// }
+
+
+// let customer = new Customer('Jane', 'Doe');
+// customerLogger(customer);
+
+
+// // customerLogger(1);  //error 
+
+
+
+interface Pair<T,U>{
+    first:T;
+    second:U;
 }
 
-function customerLogger<T extends Customer>(customer:T):void{
-    console.log(`${customer.firstName} ${customer.lastName}`);
-}
+let p: Pair<String, number> = {first: '10k', second: 1000};
+
+const person: Pair<string,string> = {first: 'Jonny', second:'liver'};
 
 
-let customer = new Customer('Jane', 'Doe');
-customerLogger(customer);
+console.log(p);
+console.log(person);
