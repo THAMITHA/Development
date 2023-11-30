@@ -4,4 +4,7 @@ function LoggerAndReturn<T>(thing: T) : T {
 
 //const message: string = LoggerAndReturn<string>('Hello World');
 const message: string = LoggerAndReturn('Hello World!!!');
+const message1: number = LoggerAndReturn(2);
+
 console.log(message);
+console.log(message1);
