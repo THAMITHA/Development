@@ -21,8 +21,35 @@ function getArray<T>(items: T[]): T[]{
 }
 
 
-let myNumArr = getArray<number>([100,200,300]);
-let myStrArr = getArray<string>(['Hello', 'World']);
+
+let myNumArr = getArray([100,200,300]);
+let myStrArr = getArray(['Hello', 'World']);
+
+// let myNumArr = getArray<number>([100,200,300]);
+// let myStrArr = getArray<string>(['Hello', 'World']);
 
 console.log(myNumArr);
 console.log(myStrArr);
+
+
+// // ----compiler error-----
+// myNumArr.push('hello');
+// myStrArr.push(1);
+
+
+
+//mutiple type variables
+function getInfo<T, U>(id: T,name: U):void{
+    console.log(typeof id+ ',' +typeof name, ' getinfo');
+}
+
+
+
+getInfo<number, string>(1,'Jane');
+
+function displayType<T>(id:T, name: string):void{
+    console.log(typeof id +', '+typeof name);
+}
+
+displayType<number>(2,'malik');
+

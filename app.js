@@ -13,5 +13,19 @@ function getArray(items) {
 }
 var myNumArr = getArray([100, 200, 300]);
 var myStrArr = getArray(['Hello', 'World']);
+// let myNumArr = getArray<number>([100,200,300]);
+// let myStrArr = getArray<string>(['Hello', 'World']);
 console.log(myNumArr);
 console.log(myStrArr);
+// // ----compiler error-----
+// myNumArr.push('hello');
+// myStrArr.push(1);
+//mutiple type variables
+function getInfo(id, name) {
+    console.log(typeof id + ',' + typeof name, ' getinfo');
+}
+getInfo(1, 'Jane');
+function displayType(id, name) {
+    console.log(typeof id + ', ' + typeof name);
+}
+displayType(2, 'malik');
