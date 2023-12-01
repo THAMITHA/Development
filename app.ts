@@ -90,23 +90,37 @@
 // console.log(person);
 
 
-interface ElementChecker{
-    <T>(items: T[],toBeChecked:T, atIndex: number):boolean;
-}
+// interface ElementChecker{
+//     <T>(items: T[],toBeChecked:T, atIndex: number):boolean;
+// }
 
-function checkElementAt<T>(
-    items: T[],
-    toBeChecked: T,
-    atIndex: number
-):boolean{
-    return items[atIndex] == toBeChecked;
-}
+// function checkElementAt<T>(
+//     items: T[],
+//     toBeChecked: T,
+//     atIndex: number
+// ):boolean{
+//     return items[atIndex] == toBeChecked;
+// }
 
-let checker: ElementChecker = checkElementAt;
-let items = [1,3,5,7];
-let b:boolean = checker<number>(items,5,1);
-console.log(b);
+// let checker: ElementChecker = checkElementAt;
+// let items = [1,3,5,7];
+// let b:boolean = checker<number>(items,5,1);
+// console.log(b);
 
-let c:boolean = checker<number>(items,5,2);
-console.log(c);
+// let c:boolean = checker<number>(items,5,2);
+// console.log(c);
+
+
+//Interfaces describing indexables
+
+interface States<R>{
+    [state:string]:R;
+} 
+
+
+let s: States<boolean> = {enabled:true, maximized:false};
+console.log(s);
+console.log(s['maximized']);
+
+
 
