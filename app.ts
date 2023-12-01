@@ -78,15 +78,35 @@
 
 
 
-interface Pair<T,U>{
-    first:T;
-    second:U;
+// interface Pair<T,U>{
+//     first:T;
+//     second:U;
+// }
+
+// let p: Pair<String, number> = {first: '10k', second: 1000};
+// console.log(p);
+
+// const person: Pair<string,string> = {first: 'Jonny', second:'liver'};
+// console.log(person);
+
+
+interface ElementChecker{
+    <T>(items: T[],toBeChecked:T, atIndex: number):boolean;
 }
 
-let p: Pair<String, number> = {first: '10k', second: 1000};
+function checkElementAt<T>(
+    items: T[],
+    toBeChecked: T,
+    atIndex: number
+):boolean{
+    return items[atIndex] == toBeChecked;
+}
 
-const person: Pair<string,string> = {first: 'Jonny', second:'liver'};
+let checker: ElementChecker = checkElementAt;
+let items = [1,3,5,7];
+let b:boolean = checker<number>(items,5,1);
+console.log(b);
 
+let c:boolean = checker<number>(items,5,2);
+console.log(c);
 
-console.log(p);
-console.log(person);

@@ -1,5 +1,10 @@
 // // -----------generic String------------------------
-var p = { first: '10k', second: 1000 };
-var person = { first: 'Jonny', second: 'liver' };
-console.log(p);
-console.log(person);
+function checkElementAt(items, toBeChecked, atIndex) {
+    return items[atIndex] == toBeChecked;
+}
+var checker = checkElementAt;
+var items = [1, 3, 5, 7];
+var b = checker(items, 5, 1);
+console.log(b);
+var c = checker(items, 5, 2);
+console.log(c);
