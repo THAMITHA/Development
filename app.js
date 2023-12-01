@@ -119,17 +119,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // numbers.remove(12);
 // let numArray = numbers.asArray();
 // console.log(numArray);
-function log(target, key, descriptor) {
-    console.log("".concat(key, " was called"));
+//Decorator
+// function log(target, key ,descriptor){
+//     console.log(`${key} was called`);
+// }
+// class Calculator{
+//     @log
+//     square(n: number){
+//         return n*n;
+//     }
+// }
+//decorators
+function log(title) {
+    return function (target, key, descriptor) {
+        var original = descriptor.value;
+        descriptor.value = function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            // Call the original method
+            var result = original.apply(this, args);
+            // Log the call, and the result
+            console.log("title:".concat(title, " ").concat(key, " with args ").concat(JSON.stringify(args), " returned\n              ").concat(JSON.stringify(result)));
+            // Return the result
+            return result;
+        };
+        return descriptor;
+    };
 }
 var Calculator = /** @class */ (function () {
     function Calculator() {
     }
+    // Using the decorator @log
     Calculator.prototype.square = function (n) {
         return n * n;
     };
+    ;
     __decorate([
-        log
+        log('calculator')
     ], Calculator.prototype, "square", null);
     return Calculator;
 }());
+var calculator = new Calculator();
+// square with args [2] returned 4
+calculator.square(2);
+// square with args [3] returned 9
+calculator.square(3);
