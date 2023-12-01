@@ -113,15 +113,26 @@
 
 //Interfaces describing indexables
 
-interface States<R>{
-    [state:string]:R;
-} 
+// interface States<R>{
+//     [state:string]:R;
+// } 
 
 
-let s: States<boolean> = {enabled:true, maximized:false};
-console.log(s);
-console.log(s['maximized']);
+// let s: States<boolean> = {enabled:true, maximized:false};
+// console.log(s);
+// console.log(s['maximized']);
 
 
 
 
+class GenericNumber<T>{
+    zerovalue: T;
+    add: (x:T,y:T) => T;
+}
+
+
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zerovalue=0;
+myGenericNumber.add=function(x,y){
+    return x +y;
+};
