@@ -139,37 +139,51 @@
 
 
 
-// generic class with generic interface--------------
-interface Collection<T>{
-    add(t:T):void;
-    remove(t:T):void;
-    asArray():T[];
-}
-class List<T> implements Collection<T>{
-    private data: T[] = [];
+// // generic class with generic interface--------------
+// interface Collection<T>{
+//     add(t:T):void;
+//     remove(t:T):void;
+//     asArray():T[];
+// }
+// class List<T> implements Collection<T>{
+//     private data: T[] = [];
     
-    add(t:T):void{
-        this.data.push(t);
-    }
+//     add(t:T):void{
+//         this.data.push(t);
+//     }
 
-    remove(t:T):void{
-        let index = this.data.indexOf(t); 
-        if(index>-1){
-            this.data.splice(index,1);
-        }
-    }
+//     remove(t:T):void{
+//         let index = this.data.indexOf(t); 
+//         if(index>-1){
+//             this.data.splice(index,1);
+//         }
+//     }
 
-    asArray():T[]{
-        return this.data;
+//     asArray():T[]{
+//         return this.data;
+//     }
+// }
+
+// let numbers: Collection<number> = new List();
+// numbers.add(11);
+// numbers.add(12);
+// numbers.add(13);
+// numbers.remove(12);
+// let numArray = numbers.asArray();
+// console.log(numArray);
+
+
+function log(target, key ,descriptor){
+    console.log(`${key} was called`);
+}
+
+
+class Calculator{
+    @log
+    square(n: number){
+        return n*n;
     }
 }
 
-let numbers: Collection<number> = new List();
-numbers.add(11);
-numbers.add(12);
-numbers.add(13);
-numbers.remove(12);
-let numArray = numbers.asArray();
-console.log(numArray);
 
 
