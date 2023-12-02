@@ -7,5 +7,8 @@
     "dev": "tsc --target ES5 --experimentalDecorators app.ts && node app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@loopback/core": "^5.1.3"
+  }
 }
